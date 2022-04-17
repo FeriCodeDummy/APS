@@ -5,11 +5,6 @@ import java.util.*;
 public class BinarnoDrevoFilmi {
 
 	public Vozlisce koren;
-	public int predecessor, successor;
-	private ArrayList<Integer> elementi;
-
-
-
 
 	private class Vozlisce{
 		public int vrednost;
@@ -25,7 +20,6 @@ public class BinarnoDrevoFilmi {
 			this.vrednost = vrednost;
 			this.desniOtrok = null;
 			this.leviOtrok = null;
-			this.oce = null;
 
 		}
 
@@ -34,8 +28,6 @@ public class BinarnoDrevoFilmi {
 
 	public BinarnoDrevoFilmi(){
 		this.koren = null;
-		this.elementi = new ArrayList<>(); //TODO sprement to
-
 	}
 
 	private Vozlisce dodajRekurzivno(Vozlisce trenutno, int vrednost, String naslov){
@@ -88,33 +80,7 @@ public class BinarnoDrevoFilmi {
 
 	}
 
-	public void successorPredecessor(Vozlisce root, int val) {
-		if (root != null) {
-			if (root.vrednost == val) {
-
-				if (root.leviOtrok != null) {
-					Vozlisce t = root.desniOtrok;
-					while (t.desniOtrok != null) {
-						t = t.desniOtrok;
-					}
-					this.predecessor = t.vrednost;
-				}
-				if (root.leviOtrok != null) {
-					Vozlisce t = root.desniOtrok;
-					while (t.leviOtrok != null) {
-						t = t.leviOtrok;
-					}
-					this.successor = t.vrednost;
-				}
-			} else if (root.vrednost > val) {
-				this.successor = root.vrednost;
-				successorPredecessor(root.leviOtrok, val);
-			} else if (root.vrednost < val) {
-				this.predecessor = root.vrednost;
-				successorPredecessor(root.desniOtrok, val);
-			}
-		}
-	}
+	
 
 
 	public void UrejenIzpis(Vozlisce koren){
@@ -321,21 +287,6 @@ public class BinarnoDrevoFilmi {
 		System.out.println("Najstarejsi filmi so " + isciFilmeRekurzivno(vozlisce, min));
 	}
 
-
-
-	private int[] ArrayListtoArray(ArrayList<Integer> arraylist){
-		int[] arr = new int[arraylist.size()];
-		for (int i = 0; i < arraylist.size(); i++){
-			arr[i] = this.elementi.get(i);
-		}
-		return arr;
-	}
-
-	public int[] urediDrevo(){
-		int[] arr = ArrayListtoArray(this.elementi);
-		Arrays.sort(arr);
-		return arr;
-	}
 
 	private int getElementIndex(int[] array, int element){
 		Arrays.sort(array);
