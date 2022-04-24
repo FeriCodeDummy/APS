@@ -46,7 +46,6 @@ public class Uredi {
 				return DualPivotQuickSort();
 
 			case "QuickSortMedian":
-				//QuickSortMedianRec(this.array, 0, this.array.length-1);
 				QuickSortMedianRec(this.array, 0, this.array.length-1);
 				return this.array;
 
