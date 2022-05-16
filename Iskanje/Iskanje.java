@@ -19,15 +19,6 @@ public class Iskanje {
 		}
 	}
 
-	static class Povezava{
-		public int cena;
-		public int v1;
-		public int v2;
-
-	}
-
-
-
 	public ArrayList<Vozlisce> IskanjeVGlobino(ArrayList<Vozlisce> G, int s, int d) {
 		Stack<Vozlisce> sklad = new Stack<>();
 
